@@ -75,6 +75,7 @@ void ft_suit(t_pars *p, t_env *e, char *buff)
 			p->bol = 42;
 		e = e->next;
 		e->presed = p->tmp2;
+		e->next = NULL;
 	}
 	p->bol3 = 1;
 	ft_adj(e, p);
@@ -104,6 +105,8 @@ int ft_pars(t_env *e, char *file)
 	while((p.count = read(fd, buff, 21)) > 0)
 	{
 		ft_suit(&p, e , buff);
+		if (e->next)
+			e = e->next;
 	}
 	e = p.tmp;
 	return(p.bol);

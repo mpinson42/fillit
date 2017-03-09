@@ -36,6 +36,7 @@ typedef struct s_pars
 	int bol3;       // tab[11]
 	t_env *tmp;
 	t_env *tmp2;
+	t_env *tmp3;
 }				 t_pars;
 
 int ft_pars(t_env *e, char *file);

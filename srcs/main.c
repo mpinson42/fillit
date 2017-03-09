@@ -27,8 +27,8 @@ int main(int argc, char **argv)
 		return(0);
 	}
 
-	printf("htag 1 = x : %d ------ y : %d\n", e.htag1[0], e.htag1[1]);
-	printf("htag 2 = x : %d ------ y : %d\n", e.htag2[0], e.htag2[1]);
-	printf("htag 3 = x : %d ------ y : %d\n", e.htag3[0], e.htag3[1]);
+	printf("htag 1 = x : %d ------ y : %d\n", e.next->next->htag1[0], e.next->next->htag1[1]);
+	printf("htag 2 = x : %d ------ y : %d\n", e.next->next->htag2[0], e.next->next->htag2[1]);
+	printf("htag 3 = x : %d ------ y : %d\n", e.next->next->htag3[0], e.next->next->htag3[1]);
 	return(0);
 }
