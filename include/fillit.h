@@ -20,7 +20,7 @@ typedef struct s_env
 
 typedef struct s_resolv
 {
-	char *maps;
+	char **maps;
 	int type;
 	int htag1[2];
 	int htag2[2];

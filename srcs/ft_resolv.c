@@ -32,12 +32,12 @@ int ft_copy_lst(t_env *e, t_resolv *r)
 
 int ft_sqrt(int i)
 {
-
+	return(0);
 }
 
 char **ft_creatmap(int i)
 {
-	
+	return(0);
 }
 
 void ft_resolve(t_env *e)
@@ -45,7 +45,7 @@ void ft_resolve(t_env *e)
 	t_resolv r;
 	int i;
 
-	r->map = ft_creatmap(ft_sqrt(ft_copy_lst(e, &r)));
+	r.maps = ft_creatmap(ft_sqrt(ft_copy_lst(e, &r)));
 	printf("htag 1 = x : %d ------ y : %d\n", r.next->next->htag1[0], r.next->next->htag1[1]);
 	printf("htag 2 = x : %d ------ y : %d\n", r.next->next->htag2[0], r.next->next->htag2[1]);
 	printf("htag 3 = x : %d ------ y : %d\n", r.next->next->htag3[0], r.next->next->htag3[1]);
