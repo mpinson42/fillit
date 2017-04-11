@@ -54,6 +54,7 @@ void ft_adj(t_env *e, t_pars *p)
 		}
 		p->i++;
 	}
+
 }
 
 void ft_suit(t_pars *p, t_env *e, char *buff)
@@ -67,6 +68,12 @@ void ft_suit(t_pars *p, t_env *e, char *buff)
 	if(buff[4] != '\n' || buff[9] != '\n' || buff[14] != '\n' || buff[19] != '\n')
 		p->bol = 3;
 	p->str = ft_strsplit(buff, '\n');
+	//ft_putnbr(ft_strlen_tab(p->str));
+	if(ft_strlen_tab(p->str) != 5  || (p->str[4][0] == '#' && p->str[4][0] == '.') || (p->str[0][0] == '#' && p->str[0][0] == '.'))
+	{
+		p->bol = 42;
+		return;
+	}
 	p->i = 0;
 	if(p->bol3 == 1)
 	{
@@ -86,28 +93,40 @@ void ft_suit(t_pars *p, t_env *e, char *buff)
 	if(p->count_dot != 12)
 		p->bol = 7;
 }
-
+#include <stdio.h>
 int ft_pars(t_env *e, char *file)
 {
 	int fd; 
 	char buff[22];
+	char test[4001];
 	t_pars p;
 
 	p.bol3 = 0;
 	p.bol = 0;
 	p.tmp = e;
+	ft_bzero(test, 4001);
 	fd = open(file, O_RDONLY);
 	if(fd == -1)
 	{
 		ft_putstr("open failed");
 		p.bol = 1;
 	}
+	buff[0] = 'l';
 	while((p.count = read(fd, buff, 21)) > 0)
-	{
+	{ 
+		if(ft_strlen(buff) < 21 || buff[20] != '\n' || buff[0] == 0 || (buff[0] != '.' && buff[0] != '#'))
+			return(42);
 		ft_suit(&p, e , buff);
 		if (e->next)
 			e = e->next;
 	}
+	if(buff[0] == 'l' || buff[21] == '\n')
+		return(42);
+	close(fd);
+	fd = open(file, O_RDONLY);
+	read(fd, test, 4000);
+	if(test[ft_strlen(test) - 2] == '\n' && test[ft_strlen(test) - 1] == '\n')
+		return(42);
 	e = p.tmp;
 	return(p.bol);
 }

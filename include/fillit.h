@@ -53,6 +53,7 @@ typedef struct s_pars
 	t_env *tmp3;
 }				 t_pars;
 
+int		ft_strlen_tab(char **tab);
 void ft_resolve(t_env *e);
 int ft_pars(t_env *e, char *file);
 void ft_algo(t_env *e);

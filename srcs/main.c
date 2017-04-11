@@ -20,10 +20,13 @@ int main(int argc, char **argv)
 {
 	t_env e;
 	int i;
+
+	if(argc != 2)
+		return(0);
 	i = ft_pars(&e, argv[1]);
 	if(i != 0)
 	{
-		ft_error(i);
+		ft_putstr("error\n");
 		return(0);
 	}
 	ft_resolve(&e);

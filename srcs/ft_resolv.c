@@ -52,7 +52,6 @@ char **ft_creatmap(int i)
 
 void ft_resolve(t_env *e)
 {
-	t_resolv r;
 	int i;
 
 	i = 0;

@@ -31,7 +31,7 @@ char ** ft_copy_maps(char **maps)
 void print_fin(int x, int y, t_env *e)
 {
 	int i = 0;
-	int j = 0;
+
 	e->maps[x][y] = e->type;
 	e->maps[x + e->htag1[0]][y + e->htag1[1]] = e->type;
 	e->maps[x + e->htag2[0]][y + e->htag2[1]] = e->type;
@@ -65,7 +65,7 @@ int ft_check_place(t_env *e)
 		bol = 0;
 		while(e->maps[x][y])
 		{
-			if(e->maps[x][y] == '.'  && x + e->htag1[0] >= 0 && x + e->htag1[0] < ft_strlen_tab(e->maps) && y + e->htag1[1] >= 0 && y + e->htag1[1] < ft_strlen(e->maps[x]) && e->maps[x + e->htag1[0]][y + e->htag1[1]] == '.'   && x + e->htag2[0] >= 0 && x + e->htag2[0] < ft_strlen_tab(e->maps) && y + e->htag2[1] >= 0 && y + e->htag2[1] < ft_strlen(e->maps[x]) && e->maps[x + e->htag2[0]][y + e->htag2[1]] == '.'  && x + e->htag3[0] >= 0 && x + e->htag3[0] < ft_strlen_tab(e->maps) && y + e->htag3[1] >= 0 && y + e->htag3[1] < ft_strlen(e->maps[x]) && e->maps[x + e->htag3[0]][y + e->htag3[1]] == '.')
+			if(e->maps[x][y] == '.'  && x + e->htag1[0] >= 0 && x + e->htag1[0] < ft_strlen_tab(e->maps) && y + e->htag1[1] >= 0 && y + e->htag1[1] < (int)ft_strlen(e->maps[x]) && e->maps[x + e->htag1[0]][y + e->htag1[1]] == '.'   && x + e->htag2[0] >= 0 && x + e->htag2[0] < ft_strlen_tab(e->maps) && y + e->htag2[1] >= 0 && y + e->htag2[1] < (int)ft_strlen(e->maps[x]) && e->maps[x + e->htag2[0]][y + e->htag2[1]] == '.'  && x + e->htag3[0] >= 0 && x + e->htag3[0] < ft_strlen_tab(e->maps) && y + e->htag3[1] >= 0 && y + e->htag3[1] < (int)ft_strlen(e->maps[x]) && e->maps[x + e->htag3[0]][y + e->htag3[1]] == '.')
 			{
 				if(e->next == NULL)
 				{
@@ -118,7 +118,7 @@ void ft_algo(t_env *e)
 		i = ft_check_place(e);
 		if(i == 1)
 		{
-			if(e->y == ft_strlen(e->maps[0]))
+			if(e->y == (int)ft_strlen(e->maps[0]))
 			{
 				e->y = 0;
 				e->x++;
@@ -135,7 +135,6 @@ void ft_algo(t_env *e)
 		{
 			e->maps = ft_creatmap(ft_sqrt(ft_copy_lst(e) * 4) + size);
 			size++;
-
 		}
 		else if(i == 2)
 			return ;
