@@ -9,12 +9,15 @@
 
 typedef struct s_env
 {
-	char *maps;
+	char **maps;
 	int htag1[2];
 	int htag2[2];
 	int htag3[2];
+	int x;
+	int y;
 	struct s_env *next;
 	struct s_env *presed;
+	int type;
 
 }				t_env;
 
@@ -52,4 +55,9 @@ typedef struct s_pars
 
 void ft_resolve(t_env *e);
 int ft_pars(t_env *e, char *file);
+void ft_algo(t_env *e);
+int ft_copy_lst(t_env *e);
+int ft_sqrt(int nb);
+char **ft_creatmap(int i);
+
 #endif

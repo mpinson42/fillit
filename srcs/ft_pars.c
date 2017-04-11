@@ -12,18 +12,18 @@ void ft_htag(int bol2, int i, int j, t_env *e)
 	if(bol2 == 1)
 	{
 		
-		e->htag1[0] = j - x;
-		e->htag1[1] = i - y;
+		e->htag1[1] = j - x;
+		e->htag1[0] = i - y;
 	}
 	if(bol2 == 2)
 	{
-		e->htag2[0] = j - x;
-		e->htag2[1] = i - y;
+		e->htag2[1] = j - x;
+		e->htag2[0] = i - y;
 	}
 	if(bol2 == 3)
 	{
-		e->htag3[0] = j - x;
-		e->htag3[1] = i - y;
+		e->htag3[1] = j - x;
+		e->htag3[0] = i - y;
 	}	
 }
 
@@ -90,7 +90,7 @@ void ft_suit(t_pars *p, t_env *e, char *buff)
 int ft_pars(t_env *e, char *file)
 {
 	int fd; 
-	char *buff;
+	char buff[22];
 	t_pars p;
 
 	p.bol3 = 0;
